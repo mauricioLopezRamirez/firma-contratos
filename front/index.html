@@ -285,7 +285,7 @@
     //window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
     clearSign = () => {
-      signaturePad.clear();
+      this.resizeCanvas()
     }
     async function handleSubmit(event) {
       event.preventDefault();
