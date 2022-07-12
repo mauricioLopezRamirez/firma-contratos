@@ -1,0 +1,8 @@
+{
+  "REQUESTCLOSE" : "close",
+  "REQUESTCLOSEBILLED" : "closeBilled",
+  "REQUESTBILLED" : "billed",
+  "REQUESTACCEPTEDLIBERTY" : "acceptedLiberty",
+  "REQUESTREJECTEDLIBERTY" : "rejectedLiberty",
+  "REJECTEDSIGNINGDOCUMENTS" : "rejectedSigningDocuments"
+}

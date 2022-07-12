@@ -1,0 +1,14 @@
+# Node modules
+node_modules
+
+public/$2y$12$ADh98LfFunIKi8pHOZGPs.5DE4lFv6dSt9qhk4l5jaA6KybIJHLWS
+public/fuec
+
+# Adonis directory for storing tmp files
+tmp
+
+# Environment variables, never commit this file
+.env
+
+# The development sqlite file
+database/*.sqlite
