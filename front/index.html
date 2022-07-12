@@ -81,12 +81,15 @@
 
 
                 <div class="form-group first">
-                  <label for="modalidad_servicio">Modalidad de servicio</label>
+                  <label for="modalidad_servicio">Recorrido</label>
                   <select class="form-control" name="modalidad_servicio" id="modalidad_servicio" required>
                     <option></option>
-                    <option>Completo</option>
-                    <option>Medio</option>
-                    <option>Compartido</option>
+                    <option>Recorrido Completo Norte</option>
+                    <option>Recorrido Completo Sur</option>
+                    <option>Recorrido Completo Oeste</option>
+                    <option>Recorrido Medio Norte</option>
+                    <option>Recorrido Medio Sur</option>
+                    <option>Recorrido Medio Oeste</option>
                   </select>
                 </div>
 
@@ -130,11 +133,6 @@
                     <option>Once</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label for="codigo_estudiante">Código del estudiante</label>
-                  <input type="number" class="form-control" id="codigo_estudiante" name="codigo_estudiante" required>
-                </div>
-
 
                 <h3 style="margin:10px 0 10px 0">Datos para recoger el alumno:</h3>
 
@@ -149,12 +147,17 @@
 
                 <div class="form-group first">
                   <label for="tipo_residencia">Tipo de residencia</label>
-                  <select class="form-control" id="tipo_residencia" name="tipo_residencia" required>
+                  <select onchange="residenciaRecogida()" class="form-control" id="tipo_residencia"
+                    name="tipo_residencia" required>
                     <option></option>
                     <option>Apartamento</option>
                     <option>Casa</option>
-                    <option>Conjunto</option>
                   </select>
+                </div>
+
+                <div class="form-group" id="input_conjunto_recogida" style="display: none;">
+                  <label for="nombre_conjunto_recogida">Nombre del Conjunto</label>
+                  <input type="text" class="form-control" id="nombre_conjunto_recogida" name="nombre_conjunto_recogida">
                 </div>
 
 
@@ -170,12 +173,17 @@
 
                 <div class="form-group first">
                   <label for="tipo_residencia_dejada">Tipo de residencia</label>
-                  <select class="form-control" id="tipo_residencia_dejada" name="tipo_residencia_dejada" required>
+                  <select onchange="residenciaDejada()" class="form-control" id="tipo_residencia_dejada"
+                    name="tipo_residencia_dejada" required>
                     <option></option>
                     <option>Apartamento</option>
                     <option>Casa</option>
-                    <option>Conjunto</option>
                   </select>
+                </div>
+
+                <div class="form-group" id="input_conjunto_dejada" style="display: none;">
+                  <label for="nombre_conjunto_dejada">Nombre del Conjunto</label>
+                  <input type="text" class="form-control" id="nombre_conjunto_dejada" name="nombre_conjunto_dejada">
                 </div>
 
 
@@ -329,6 +337,31 @@
       }
 
       console.log(tipo_responsable)
+    }
+
+
+    residenciaRecogida = () => {
+      const residencia_recogida = document.getElementById('tipo_residencia').value;
+      const input_recogida = document.getElementById('input_conjunto_recogida');
+      const nombre_conjunto_recogida = document.getElementById('nombre_conjunto_recogida');
+      input_recogida.style.display = 'none';
+      nombre_conjunto_recogida.required = false;
+      if (residencia_recogida == 'Apartamento') {
+        nombre_conjunto_recogida.required = true;
+        input_recogida.style.display = 'block';
+      }
+    }
+
+    residenciaDejada = () => {
+      const residencia_dejada = document.getElementById('tipo_residencia_dejada').value;
+      const input_dejada = document.getElementById('input_conjunto_dejada');
+      const nombre_conjunto_dejada = document.getElementById('nombre_conjunto_dejada');
+      input_dejada.style.display = 'none';
+      nombre_conjunto_dejada.required = false;
+      if (residencia_dejada == 'Apartamento') {
+        nombre_conjunto_dejada.required = true;
+        input_dejada.style.display = 'block';
+      }
     }
 
     const canvas = document.querySelector("canvas");
