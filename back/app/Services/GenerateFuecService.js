@@ -19,7 +19,7 @@ class GenerateFuecService {
     try {
       const browser = await puppeteer.launch();
       const page = await browser.newPage();
-      await page.goto(`${Env.get('URL')}/api/loadInfoInFuec?data=${JSON.stringify(data)}`, { waitUntil: 'networkidle2' });
+      await page.goto(`${Env.get('APP_URL')}/api/loadInfoInFuec?data=${JSON.stringify(data)}`, { waitUntil: 'networkidle2' });
       const pdf = await page.pdf({ path: `public/contratos/${data.nameFuec}`, format: 'A4', margin: { top: 30, left: 30, right: 30, bottom: 30 } });
       await browser.close();
       const emails = ['mauricio.lopez@umanizales.edu.co', 'synergyspecials2@gmail.com'];
