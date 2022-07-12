@@ -278,10 +278,11 @@
     function resizeCanvas() {
       const ratio = Math.max(window.devicePixelRatio || 1, 1);
       canvas.width = canvas.offsetWidth * ratio;
-      canvas.height = (canvas.offsetHeight + 400);
+      canvas.height = (canvas.offsetHeight + 500);
       canvas.getContext("2d").scale(ratio, ratio);
+      signaturePad.clear(); // otherwise isEmpty() might return incorrect value
     }
-    window.addEventListener("resize", resizeCanvas);
+    //window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
     clearSign = () => {
       signaturePad.clear();
