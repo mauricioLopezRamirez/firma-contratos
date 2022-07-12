@@ -300,7 +300,7 @@
         const img_firma = signaturePad.toDataURL();
         data.append('sign', img_firma);
         const value = Object.fromEntries(data.entries());
-        const response = await fetch("http://localhost:3333/api/generate", {
+        const response = await fetch("http://34.125.20.149:3334/api/generate", {
           method: 'POST',
           body: data
         });
