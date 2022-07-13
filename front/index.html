@@ -230,8 +230,7 @@
 
 
                 <h3 style="margin:10px 0 10px 0">Firma Manuscrita digital:</h3>
-                <canvas></canvas>
-
+                <center><canvas></canvas></center>
                 <div class="options">
                   <button type="button" class="btn btn-outline-warning btn-sm" onclick="clearSign()">Limpiar
                     Firma</button>
@@ -373,10 +372,8 @@
     });
 
     function resizeCanvas() {
-      const ratio = Math.max(window.devicePixelRatio || 1, 1);
-      canvas.width = canvas.offsetWidth * ratio;
-      canvas.height = (canvas.offsetHeight + 500);
-      canvas.getContext("2d").scale(ratio, ratio);
+      canvas.width = 300;
+      canvas.height = 200;
       signaturePad.clear(); // otherwise isEmpty() might return incorrect value
     }
     //window.addEventListener("resize", resizeCanvas);
