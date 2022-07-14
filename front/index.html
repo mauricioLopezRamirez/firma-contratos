@@ -82,7 +82,8 @@
 
                 <div class="form-group first">
                   <label for="modalidad_servicio">Recorrido</label>
-                  <select class="form-control" name="modalidad_servicio" id="modalidad_servicio" required>
+                  <select onchange="cambioRuta()" class="form-control" name="modalidad_servicio" id="modalidad_servicio"
+                    required>
                     <option></option>
                     <option>Recorrido Completo Norte</option>
                     <option>Recorrido Completo Sur</option>
@@ -90,6 +91,15 @@
                     <option>Recorrido Medio Norte</option>
                     <option>Recorrido Medio Sur</option>
                     <option>Recorrido Medio Oeste</option>
+                  </select>
+                </div>
+
+                <div class="form-group first" id="servicio" style="display: none;">
+                  <label for="servicio_input">Servicio</label>
+                  <select onchange="servicioMedio()" class="form-control" name="servicio_input" id="servicio_input">
+                    <option></option>
+                    <option>Recoger al estudiante</option>
+                    <option>Dejar al estudiante en casa</option>
                   </select>
                 </div>
 
@@ -136,56 +146,57 @@
                   </select>
                 </div>
 
-                <h3 style="margin:10px 0 10px 0">Datos para recoger el alumno:</h3>
 
-                <div class="form-group">
-                  <label for="direccion_recogida">Direccion de recogida</label>
-                  <input type="text" class="form-control" id="direccion_recogida" name="direccion_recogida" required>
-                </div>
-                <div class="form-group">
-                  <label for="barrio_recogida">Barrio</label>
-                  <input type="text" class="form-control" id="barrio_recogida" name="barrio_recogida" required>
-                </div>
-
-                <div class="form-group first">
-                  <label for="tipo_residencia">Tipo de residencia</label>
-                  <select onchange="residenciaRecogida()" class="form-control" id="tipo_residencia"
-                    name="tipo_residencia" required>
-                    <option></option>
-                    <option>Apartamento</option>
-                    <option>Casa</option>
-                  </select>
-                </div>
-
-                <div class="form-group" id="input_conjunto_recogida" style="display: none;">
-                  <label for="nombre_conjunto_recogida">Nombre del Conjunto</label>
-                  <input type="text" class="form-control" id="nombre_conjunto_recogida" name="nombre_conjunto_recogida">
-                </div>
-
-
-                <h3 style="margin:10px 0 10px 0">Datos para dejar el alumno:</h3>
-                <div class="form-group">
-                  <label for="direccion_dejada">Dirección</label>
-                  <input type="text" class="form-control" id="direccion_dejada" name="direccion_dejada" required>
-                </div>
-                <div class="form-group">
-                  <label for="barrio_dejada">Barrio</label>
-                  <input type="text" class="form-control" id="barrio_dejada" name="barrio_dejada" required>
+                <div id="datosParaRecoger" style="display: none;">
+                  <h3 style="margin:10px 0 10px 0">Datos para recoger el alumno:</h3>
+                  <div class="form-group">
+                    <label for="direccion_recogida">Direccion de recogida</label>
+                    <input type="text" class="form-control" id="direccion_recogida" name="direccion_recogida" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="barrio_recogida">Barrio</label>
+                    <input type="text" class="form-control" id="barrio_recogida" name="barrio_recogida" required>
+                  </div>
+                  <div class="form-group first">
+                    <label for="tipo_residencia">Tipo de residencia</label>
+                    <select onchange="residenciaRecogida()" class="form-control" id="tipo_residencia"
+                      name="tipo_residencia" required>
+                      <option></option>
+                      <option>Apartamento</option>
+                      <option>Casa</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="input_conjunto_recogida" style="display: none;">
+                    <label for="nombre_conjunto_recogida">Nombre del Conjunto</label>
+                    <input type="text" class="form-control" id="nombre_conjunto_recogida"
+                      name="nombre_conjunto_recogida">
+                  </div>
                 </div>
 
-                <div class="form-group first">
-                  <label for="tipo_residencia_dejada">Tipo de residencia</label>
-                  <select onchange="residenciaDejada()" class="form-control" id="tipo_residencia_dejada"
-                    name="tipo_residencia_dejada" required>
-                    <option></option>
-                    <option>Apartamento</option>
-                    <option>Casa</option>
-                  </select>
-                </div>
 
-                <div class="form-group" id="input_conjunto_dejada" style="display: none;">
-                  <label for="nombre_conjunto_dejada">Nombre del Conjunto</label>
-                  <input type="text" class="form-control" id="nombre_conjunto_dejada" name="nombre_conjunto_dejada">
+                <div id="datosParaDejar" style="display: none;">
+                  <h3 style="margin:10px 0 10px 0">Datos para dejar el alumno:</h3>
+                  <div class="form-group">
+                    <label for="direccion_dejada">Dirección</label>
+                    <input type="text" class="form-control" id="direccion_dejada" name="direccion_dejada" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="barrio_dejada">Barrio</label>
+                    <input type="text" class="form-control" id="barrio_dejada" name="barrio_dejada" required>
+                  </div>
+                  <div class="form-group first">
+                    <label for="tipo_residencia_dejada">Tipo de residencia</label>
+                    <select onchange="residenciaDejada()" class="form-control" id="tipo_residencia_dejada"
+                      name="tipo_residencia_dejada" required>
+                      <option></option>
+                      <option>Apartamento</option>
+                      <option>Casa</option>
+                    </select>
+                  </div>
+                  <div class="form-group" id="input_conjunto_dejada" style="display: none;">
+                    <label for="nombre_conjunto_dejada">Nombre del Conjunto</label>
+                    <input type="text" class="form-control" id="nombre_conjunto_dejada" name="nombre_conjunto_dejada">
+                  </div>
                 </div>
 
 
@@ -363,6 +374,62 @@
         nombre_conjunto_dejada.required = true;
         input_dejada.style.display = 'block';
       }
+    }
+
+    cambioRuta = () => {
+      const input = document.getElementById('modalidad_servicio').value;
+      const divServicio = document.getElementById('servicio')
+      const servicio_input = document.getElementById('servicio_input')
+      document.getElementById('datosParaRecoger').style.display = 'none';
+      document.getElementById('datosParaDejar').style.display = 'none';
+      if (input.includes('Medio')) {
+        document.getElementById('direccion_recogida').required = false;
+        document.getElementById('barrio_recogida').required = false;
+        document.getElementById('tipo_residencia').required = false;
+        document.getElementById('direccion_dejada').required = false;
+        document.getElementById('barrio_dejada').required = false;
+        document.getElementById('tipo_residencia_dejada').required = false;
+        divServicio.style.display = 'block';
+        servicio_input.required = true;
+      } else {
+        document.getElementById('direccion_recogida').required = true;
+        document.getElementById('barrio_recogida').required = true;
+        document.getElementById('tipo_residencia').required = true;
+        document.getElementById('direccion_dejada').required = true;
+        document.getElementById('barrio_dejada').required = true;
+        document.getElementById('tipo_residencia_dejada').required = true;
+        divServicio.style.display = 'none';
+        servicio_input.required = false;
+        document.getElementById('datosParaRecoger').style.display = 'block';
+        document.getElementById('datosParaDejar').style.display = 'block';
+
+      }
+    }
+
+    servicioMedio = () => {
+      const servicio = document.getElementById('servicio_input').value;
+      document.getElementById('datosParaRecoger').style.display = 'none';
+      document.getElementById('datosParaDejar').style.display = 'none';
+      document.getElementById('direccion_recogida').required = false;
+      document.getElementById('barrio_recogida').required = false;
+      document.getElementById('tipo_residencia').required = false;
+      document.getElementById('direccion_dejada').required = false;
+      document.getElementById('barrio_dejada').required = false;
+      document.getElementById('tipo_residencia_dejada').required = false;
+
+
+      if (servicio == 'Recoger al estudiante') {
+        document.getElementById('datosParaRecoger').style.display = 'block';
+        document.getElementById('direccion_recogida').required = true;
+        document.getElementById('barrio_recogida').required = true;
+        document.getElementById('tipo_residencia').required = true;
+      } else {
+        document.getElementById('datosParaDejar').style.display = 'block';
+        document.getElementById('direccion_dejada').required = true;
+        document.getElementById('barrio_dejada').required = true;
+        document.getElementById('tipo_residencia_dejada').required = true;
+      }
+
     }
 
     const canvas = document.querySelector("canvas");
