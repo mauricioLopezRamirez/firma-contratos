@@ -3,6 +3,7 @@ const Logger = use('Logger')
 const GenerateFuecService = use('App/Services/GenerateFuecService');
 const ValidatorFuec = use('App/Validators/Fuec.js');
 const generator = require('generate-password');
+const contrato = use('App/Models/Contract');
 const QRCode = require('qrcode')
 const Helpers = use('Helpers');
 const Env = use('Env')
@@ -19,9 +20,11 @@ const fs = use('fs');
 class FuecController {
 
   async loadInfoInFuec({ request, view }) {
-    const { data } = request.get()
+    const { id } = request.get()
     try {
-      return view.render('Documents/fuec', { data: JSON.parse(data) });
+      const obj_contrato = await contrato.find(id);
+      const data = JSON.parse(obj_contrato.toJSON().data);
+      return view.render('Documents/fuec', { data });
     } catch (error) {
       Logger.error('FuecController.loadInfoInFuec', error)
     }
@@ -43,8 +46,9 @@ class FuecController {
       data.sign = await this.saveImg(data.sign);
       data.nameFuec = nameFuec
       data.urlFuec = `${url}/fuec/${nameFuec}`;
-      const fuec = await GenerateFuecService.fuec(data)
-      if (fuec) {
+      const contrato_object = await contrato.create({data: JSON.stringify(data)});
+      await GenerateFuecService.fuec(contrato_object)
+      if (contrato_object.id) {
         return response.send({ status: true });
       }
       return response.send({ status: false });
@@ -60,7 +64,7 @@ class FuecController {
         length: 20,
         uppercase: false
       });
-      const url = 'public/$2y$12$ADh98LfFunIKi8pHOZGPs.5DE4lFv6dSt9qhk4l5jaA6KybIJHLWS/' + namesImg[0] + '.png';
+      const url = 'public/' + namesImg[0] + '.png';
       await QRCode.toFile(url, urlFuec, {
         color: {
           dark: '#00F',
@@ -88,16 +92,21 @@ class FuecController {
   }
 
   async saveImg(data) {
-    let base64Image = data.split(';base64,').pop();
-    const namesImg = generator.generateMultiple(1, {
-      length: 20,
-      uppercase: false
-    });
-    const nameFirm = `public/$2y$12$OiqHA3FcNTuzr6sBHF3yOXZeB9a5JtBmEkGOXmqxeiEPui3.J4ii/${namesImg[0]}.png`
-    await fs.writeFile(nameFirm, base64Image, { encoding: 'base64' }, function (err) {
-      console.log('File created');
-    });
-    return namesImg[0]
+    try {
+     let base64Image = data.split(';base64,').pop();
+     const namesImg = generator.generateMultiple(1, {
+       length: 20,
+       uppercase: false
+     });
+     const nameFirm = `/home/mauricio_lopez/firma-contratos/back/public/${namesImg[0]}.png`
+     const a = await fs.writeFile(nameFirm, base64Image, { encoding: 'base64' }, function (err) {
+       console.log('File created', err);
+     });
+     console.log(a)
+     return namesImg[0]
+    }  catch (error) {
+    	console.log(error)
+    }
   }
 
   /**

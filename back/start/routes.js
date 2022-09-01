@@ -21,5 +21,9 @@ Route.group(() => {
   Route.post('generate', 'FuecController.store');
   Route.get('loadInfoInFuec', 'FuecController.loadInfoInFuec');
   Route.post('login', 'LoginController.login');
+  Route.post('prueba', () => {
+    const GenerateFuecService = use('App/Services/GenerateFuecService');
+    return GenerateFuecService.fuec();
+  });
 }).prefix('api/');
 

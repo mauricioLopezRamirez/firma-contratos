@@ -105,22 +105,23 @@
     <img width="100" style="position:absolute;" src="{{assetsUrl('$2y$12$OiqHA3FcNTuzr6sBHF3yOXZeB9a5JtBmEkGOXmqxeiEPui3.J4ii/logo1.jpg')}}" />
     <p style="padding-left: 151pt;text-indent: 0pt;text-align: center;">
         <span>
-            <h1 style="text-align: center;color:#3939a1;">ASOCIADOS DEL TRASNAPORTE S.A.</h1>
+            <h1 style="text-align: center;color:#3939a1;">ASOCIADOS DEL TRANSPORTE S.A.</h1>
             <h2 style="text-align: center;color:#3939a1;">NIT. 805.014.093-6</h2>
             <h1 style="text-align: center;">CONTRATO CON PADRES DE FAMILIA CONTRATO DE MANDATO PARA TRANSPORTE ESCOLAR
             </h1>
             <h1 style="text-align: center;">SERVICIO PUERTA A PUERTA</h1>
             <h2 style="text-align: center;">FR-GC-03 VERSIÓN 03 FECHA DE ACTUALIZACIÓN 24-06-2021</h2>
             <br><br>
-            <br>
-            <br>
+            
+   
             <ol id="l1">
                 <li data-list-text="1.">
                     <h2 style="padding-left: 42pt;text-indent: -35pt;line-height: 11pt;text-align: left;">
                         LUGAR Y FECHADE SUSCRIPCIÓN DE ESTE CONTRATO: <b>CALI VALLE DEL CAUCA {{getDate()}}</b></h2>
                 </li>
                 <li data-list-text="2.">
-                    <h2 style="padding-left: 42pt;text-indent: -35pt;line-height: 11pt;text-align: left;">PARTES</h2>
+                    <h2 style="padding-left: 42pt;text-indent: -35pt;line-height: 11pt;text-align: left;">
+PARTES,</h2>
                 </li>
             </ol>
             <p style="text-indent: 0pt;text-align: left;" />
@@ -134,9 +135,7 @@
                 <b>{{toUpperCase(data.direccion_responsable)}}</b> TELEFONO:
                 <b>{{toUpperCase(data.telefono_responsable)}}</b> MANDATARIO: ASOCIADOS DEL
                 TRANSPORTE S.A. ATSA
-                S.A. REPRESENTANTE LEGAL: CLAUDIA PATRICIA AVILA MEJIA NIT. 805.014.093–6. DIRECCIÓN: CL 51N Nº. 2GN
-                48
-                B/ LA MERCED DE CALI - TELEFONOS: 410 23 07 - 370 49 99. <span class="p">3</span>.OBJETO: <span
+                S.A. REPRESENTANTE LEGAL: CLAUDIA PATRICIA AVILA MEJIA NIT. 805.014.093–6. DIRECCIÓN: Calle 44 No 1E-03 Oficina 212 Plaza 44 B/Manzanares de Cali - Teléfono 6023489314. <span class="p">3</span>.OBJETO: <span
                     class="p">Con la suscripción del presente contrato </span>EL MANDANTE <span class="p">le encarga
                     a
                 </span>EL MANDATARIO <span class="p">la prestación del servicio de </span>TRANSPORTE ESCOLAR <span
@@ -160,7 +159,6 @@
                     conforme a
                     las normas establecidas para este tipo de actividad.</span>
             </p>
-            <br>
             <table style="border-collapse:collapse;margin-left:6.01pt" cellspacing="0">
                 <tr style="height:11pt">
                     <td
@@ -170,7 +168,7 @@
                     </td>
                     <td style="width:33pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         rowspan="3">
-                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                        <p style="text-indent: 0pt;text-align: left;"></p>
                     </td>
                     <td style="width:269pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         colspan="7">
@@ -181,12 +179,22 @@
                 <tr style="height:11pt">
                     <td style="width:230pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         rowspan="2">
-                        <p style="text-indent: 0pt;text-align: left;"><br /></p>
+                        <p style="text-indent: 0pt;text-align: left;"><br><b> COLEGIO DE SAN LUIS GONZAGA</b></p>
                     </td>
                     <td style="width:54pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         rowspan="2">
                         <p class="s3" style="padding-top: 7pt;padding-left: 8pt;text-indent: 0pt;text-align: left;">
-                            Completo</p>
+                            Completo
+			@if(data.modalidad_servicio == 'Recorrido Completo Norte')
+                        <h1>X</h1>
+                        @endif
+                        @if(data.modalidad_servicio == 'Recorrido Completo Sur')
+                        <h1>X</h1>
+                        @endif
+                        @if(data.modalidad_servicio == 'Recorrido Completo Oeste')
+                        <h1>X</h1>
+                        @endif
+</p>
                     </td>
                     <td
                         style="width:27pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -196,7 +204,18 @@
                     <td style="width:31pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
                         rowspan="2">
                         <p class="s3" style="padding-top: 7pt;padding-left: 3pt;text-indent: 0pt;text-align: left;">
-                            Medio</p>
+                            Medio
+                        @if(data.modalidad_servicio == 'Recorrido Medio Norte')
+                        <h1>X</h1>
+                        @endif
+                        @if(data.modalidad_servicio == 'Recorrido Medio Sur')
+                        <h1>X</h1>
+                        @endif
+                        @if(data.modalidad_servicio == 'Recorrido Medio Oeste')
+                        <h1>X</h1>
+                        @endif
+
+</p>
                     </td>
                     <td
                         style="width:28pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
@@ -322,7 +341,7 @@
                         style="width:68pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
                         <p style="text-indent: 0pt;text-align: left;">
                             <b>
-                                {{toUpperCase(data.codigo_estudiante)}}
+                                {{toUpperCase(data.cedula_responsable)}}
                             </b>
                         </p>
                     </td>
@@ -407,8 +426,8 @@
     <td
         style="width:68pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
         <p style="text-indent: 0pt;text-align: center;">
-            @if(data.tipo_residencia == 'Conjunto')
-        <h1>X</h1>
+            @if(data.tipo_residencia == 'Apartamento')
+        <b>{{data.nombre_conjunto_recogida}}</b>
         @endif
         </p>
     </td>
@@ -477,7 +496,7 @@
         <td style="width:45pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
             <p style="text-indent: 0pt;text-align: left;">
-                @if(data.tipo_residencia == 'Casa')
+                @if(data.tipo_residencia_dejada == 'Casa')
             <h1>X</h1>
             @endif
             </p>
@@ -485,7 +504,7 @@
         <td
             style="width:44pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
             <p style="text-indent: 0pt;text-align: left;">
-                @if(data.tipo_residencia == 'Apartamento')
+                @if(data.tipo_residencia_dejada == 'Apartamento')
             <h1>X</h1>
             @endif
             </p>
@@ -493,8 +512,8 @@
         <td
             style="width:68pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt">
             <p style="text-indent: 0pt;text-align: left;">
-                @if(data.tipo_residencia == 'Conjunto')
-            <h1>X</h1>
+                @if(data.tipo_residencia_dejada == 'Apartamento')
+            <b>{{data.nombre_conjunto_dejada}}</b>
             @endif
             </p>
         </td>
@@ -520,15 +539,58 @@
     <tr style="height:16pt">
         <td style="width:256pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+
+@if(data.tipo_responsable == 'Padre de familia')
+<b>{{data.nombre_responsable}} {{data.apellidos_responsable}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Madre de familia')
+<b>{{data.nombre_completo_padre}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.nombre_completo_padre}}</b>
+@endif
+
+
+	</p>
         </td>
         <td style="width:88pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+
+@if(data.tipo_responsable == 'Padre de familia')
+<b>{{data.telefono_responsable}}</b>
+@endif
+
+
+@if(data.tipo_responsable == 'Madre de familia')
+<b>{{data.telefono_padre}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.telefono_padre}}</b>
+@endif
+
+</p>
         </td>
         <td style="width:188pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="5">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+@if(data.tipo_responsable == 'Padre de familia')
+<b>{{data.direccion_responsable}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Madre de familia')
+<b>{{data.direccion_padre}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.direccion_padre}}</b>
+@endif
+
+</p>
         </td>
     </tr>
     <tr style="height:12pt">
@@ -552,15 +614,56 @@
     <tr style="height:16pt">
         <td style="width:256pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+
+@if(data.tipo_responsable == 'Madre de familia')
+<b>{{data.nombre_responsable}} {{data.apellidos_responsable}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Padre de familia')
+<b>{{data.nombre_completo_madre}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.nombre_completo_madre}}</b>
+@endif
+
+
+</p>
         </td>
         <td style="width:88pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+@if(data.tipo_responsable == 'Madre de familia')
+<b>{{data.telefono_responsable}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Padre de familia')
+<b>{{data.telefono_madre}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.telefono_madre}}</b>
+@endif
+</p>
         </td>
         <td style="width:188pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="5">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+
+@if(data.tipo_responsable == 'Madre de familia')
+<b>{{data.direccion_responsable}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Padre de familia')
+<b>{{data.direccion_madre}}</b>
+@endif
+
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.direccion_madre}}</b>
+@endif
+
+</p>
         </td>
     </tr>
     <tr style="height:11pt">
@@ -584,15 +687,27 @@
     <tr style="height:15pt">
         <td style="width:256pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.nombre_responsable}} {{data.apellidos_responsable}}</b>
+@endif
+</p>
         </td>
         <td style="width:88pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="2">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.telefono_responsable}}</b>
+@endif
+</p>
         </td>
         <td style="width:188pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="5">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+@if(data.tipo_responsable == 'Acudiente')
+<b>{{data.direccion_responsable}}</b>
+@endif
+</p>
         </td>
     </tr>
     <tr style="height:11pt">
@@ -605,23 +720,43 @@
     <tr style="height:16pt">
         <td style="width:389pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="6">
-            <p style="text-indent: 0pt;text-align: left;"><br /></p>
+            <p style="text-indent: 0pt;text-align: left;">
+<h1>{{data.modalidad_servicio}}</h1>
+</p>
         </td>
         <td style="width:143pt;border-top-style:solid;border-top-width:1pt;border-left-style:solid;border-left-width:1pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:1pt"
             colspan="3">
-            <p class="s2" style="padding-top: 1pt;padding-left: 3pt;text-indent: 0pt;text-align: left;">$
+            <p class="s2" style="padding-top: 1pt;padding-left: 3pt;text-indent: 0pt;text-align: left;">
+                @if(data.modalidad_servicio == 'Recorrido Completo Norte')
+                <b>$278.000 COP</b>
+                @endif
+                @if(data.modalidad_servicio == 'Recorrido Completo Sur')
+                <b>$317.000 COP</b>
+                @endif
+                @if(data.modalidad_servicio == 'Recorrido Completo Oeste')
+                <b>$278.000 COP</b>
+                @endif
+                @if(data.modalidad_servicio == 'Recorrido Medio Norte')
+                <b>$190.000 COP</b>
+                @endif
+                @if(data.modalidad_servicio == 'Recorrido Medio Sur')
+                <b>$217.000 COP</b>
+                @endif
+                @if(data.modalidad_servicio == 'Recorrido Medio Oeste')
+                <b>$217.000 COP</b>
+                @endif
             </p>
         </td>
     </tr>
     </table>
     <p style="padding-left: 6pt;text-indent: 0pt;text-align: justify;"><b>13. FORMA DE PAGO, PLAZO Y
             CONDICIONES: EL MANDANTE </b>pagará incondicionalmente a la vista y a la orden de <b>EL
-            MANDATARIO</b>. Ubicada en la calle 51N # 2GN-48 del Barrio LA MERCED, pagaderos en cuotas mensuales
+            MANDATARIO</b>. Ubicada en la calle 44  No 1e-03 oficina 212 Barrio Manzanares, pagaderos en cuotas mensuales
         anticipadas y sucesivas dentro de <b>los CINCO (05) </b>primeros días calendario de cada mes, valor que
         ha sido establecido por las partes en la cláusula 12. <b>PARÁGRAFO 1: EL MANDATARIO, NO se
             responsabiliza por pagos que no sean consignados por el MANDANTE en el Banco Asignado. 14. DURACIÓN:
-        </b>El presente contrato se pacta por los <b>Diez </b>(10) meses del año lectivo, el cual inicia el
-        <u>&nbsp;</u> y termina el <u>&nbsp;</u> 15. Entre los suscritos <u>&nbsp;</u>, mayor de edad y vecino
+        </b>El presente contrato se pacta por los <b>Diez </b>(10) meses del año lectivo, el cual inicia en Septiembre
+        del 2022 y termina en Junio del 2023. <b>15.</b> Entre los suscritos <b>{{data.nombre_responsable}} {{data.apellidos_responsable}}</b>, mayor de edad y vecino
         de Cali (V), identificado y domiciliado como aparece en la clausula segunda de este contrato, quien para
         efectos del presente se denomina <b>EL MANDANTE </b>y <b>ASOCIADOS DEL TRANSPORTE S.A. ATSA S.A.
         </b>persona jurídica registrada ante la CAMARA Y COMERCIO de CALI con NIT. , domicilio y representada
@@ -752,7 +887,6 @@
             ADICIONALES: </b>Las partes acuerdan que, para introducir una modificación, aclaración, clausula
         adicional ó cualquier documento que haga parte de éste contrato, deberá hacerse mediante OTROSÍ, el cual
         deberá firmarse por las partes contratantes.</p>
-    <p style="text-indent: 0pt;text-align: left;"><br /></p>
     <p style="padding-left: 8pt;text-indent: -2pt;text-align: left;">En constancia se firma por las partes que
         en él intervienen, en dos (2) ejemplares del mismo tenor en la ciudad de Santiago de Cali a los
         (<b>{{getDay()}}</b>) Días
@@ -773,7 +907,7 @@
 
                     <td>
                         <h2 style="padding-left: 6pt;text-indent: 0pt;text-align: left;">EL MANDANTE</h2>
-                        <img width="200" src="{{assetsUrl('$2y$12$OiqHA3FcNTuzr6sBHF3yOXZeB9a5JtBmEkGOXmqxeiEPui3.J4ii/'+data.sign+'.png')}}" />
+                        <img width="200" src="{{assetsUrl(data.sign+'.png')}}" />
                         <h2 style="padding-left: 6pt;text-indent: 0pt;line-height: 11pt;text-align: justify;">
                             Firma del padre o acudiente
                         </h2>

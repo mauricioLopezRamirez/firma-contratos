@@ -18,9 +18,9 @@ class MailService {
     const transporter = await this.config();
     const htmlEmail = await this.templateToHtml('emails/fuec', {});
     const data_sent = {
-      from: "fuec@fuec.com",
+      from: "contratos@fuec.com",
       to: emails,
-      subject: `Documento Fuec`,
+      subject: `Contrato transporte estudiantes`,
       html: htmlEmail,
       attachments: { path: patch }
     };
