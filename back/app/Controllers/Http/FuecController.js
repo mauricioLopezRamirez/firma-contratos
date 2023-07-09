@@ -24,7 +24,16 @@ class FuecController {
     try {
       const obj_contrato = await contrato.find(id);
       const data = JSON.parse(obj_contrato.toJSON().data);
-      return view.render('Documents/fuec', { data });
+      let templateName = '';
+      switch (data.colegio) {
+        case 'SAN LUIS GONZAGA':
+          templateName = 'sanLuisGonzaga'
+          break;
+        default:
+          templateName = 'sanLuisGonzaga'
+          break;
+      }
+      return view.render(`Documents/${templateName}`, { data });
     } catch (error) {
       Logger.error('FuecController.loadInfoInFuec', error)
     }
@@ -46,7 +55,7 @@ class FuecController {
       data.sign = await this.saveImg(data.sign);
       data.nameFuec = nameFuec
       data.urlFuec = `${url}/fuec/${nameFuec}`;
-      const contrato_object = await contrato.create({data: JSON.stringify(data)});
+      const contrato_object = await contrato.create({ data: JSON.stringify(data) });
       await GenerateFuecService.fuec(contrato_object)
       if (contrato_object.id) {
         return response.send({ status: true });
@@ -93,19 +102,21 @@ class FuecController {
 
   async saveImg(data) {
     try {
-     let base64Image = data.split(';base64,').pop();
-     const namesImg = generator.generateMultiple(1, {
-       length: 20,
-       uppercase: false
-     });
-     const nameFirm = `/home/mauricio_lopez/firma-contratos/back/public/${namesImg[0]}.png`
-     const a = await fs.writeFile(nameFirm, base64Image, { encoding: 'base64' }, function (err) {
-       console.log('File created', err);
-     });
-     console.log(a)
-     return namesImg[0]
-    }  catch (error) {
-    	console.log(error)
+      let base64Image = data.split(';base64,').pop();
+      const namesImg = generator.generateMultiple(1, {
+        length: 20,
+        uppercase: false
+      });
+      //  /home/ubuntu/firma-contratos/back/public/${namesImg[0]}.png
+      //  C:/Users/mauri/Documents/firma-contratos/back/public/${namesImg[0]}.png
+      const nameFirm = `/home/ubuntu/firma-contratos/back/public/${namesImg[0]}.png`
+      const a = await fs.writeFile(nameFirm, base64Image, { encoding: 'base64' }, function (err) {
+        console.log('File created', err);
+      });
+      console.log(a)
+      return namesImg[0]
+    } catch (error) {
+      console.log(error)
     }
   }
 

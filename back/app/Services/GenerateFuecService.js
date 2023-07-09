@@ -23,7 +23,7 @@ class GenerateFuecService {
       const page = await browser.newPage();
       await page.goto(`${Env.get('APP_URL')}/api/loadInfoInFuec?id=${contrato.id}`, { waitUntil: 'networkidle2' });
       const pdf = await page.pdf({ path: `public/contratos/${data.nameFuec}`, format: 'A4', margin: { top: 30, left: 30, right: 30, bottom: 30 } });
-      const emails = ['synergyspecials2@gmail.com', data.email_responsable];
+      const emails = ['synergyspecials2@gmail.com','synergy.contabilidad03@gmail.com', data.email_responsable];
       await mailService.sendEmail(`public/contratos/${data.nameFuec}`, emails);
       await page.close();
       await browser.close();
